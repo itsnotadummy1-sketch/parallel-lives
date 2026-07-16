@@ -7,7 +7,7 @@ export default function Home() {
           <span className="text-[#7c5cbf]">chose differently?</span>
         </h1>
         <p className="text-xl text-[#9a9aab] mb-12">
-          Explore the life you didn't live.
+          Explore the life you didn&apos;t live.
         </p>
         <a
           href="/questionnaire"
