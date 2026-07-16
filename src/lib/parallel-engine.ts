@@ -288,12 +288,15 @@ function calculateDivergenceScore(
   
   for (let i = 0; i < answers.length; i++) {
     const diff = Math.abs(answers[i] - parallelChoices[i]);
-    score += diff * weights[i] * 15;
+    score += diff * weights[i];
   }
   
-  score += random() * 10;
+  const maxScore = 3 * weights.reduce((a, b) => a + b, 0);
+  const normalizedScore = (score / maxScore) * 100;
   
-  return Math.min(100, Math.round(score));
+  const finalScore = normalizedScore + random() * 5;
+  
+  return Math.min(100, Math.round(finalScore));
 }
 
 export function generateLifeDataStrings(parallelPath: LifePath, realPath: LifePath, random: () => number): string[] {
